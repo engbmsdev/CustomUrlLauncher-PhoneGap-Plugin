@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android" id="it.eonardol.plugins.customurllauncher" version="1.0.0">
+  <name>CustomUrlLauncher</name>
+  <description>
+    This plugin allows you to launch another app via custom url (eg. anotherapp://?foo=321) in a new task.
+  </description>
+  <author>Leonardo Valenti</author>
+  <license>MIT</license>
+  <keywords>Custom Url, Launcher, New task, Intent</keywords>
+  <repo>https://github.com/eonardol/CustomUrlLauncher-PhoneGap-Plugin.git</repo>
+  <issue>https://github.com/eonardol/CustomUrlLauncher-PhoneGap-Plugin/issues</issue>
+  <engines>
+    <engine name="cordova" version=">=3.0.0" />
+  </engines>
+  <js-module src="www/CustomUrlLauncher.js" name="CustomUrlLauncher">
+    <clobbers target="window.plugins.customurllauncher" />
+  </js-module>
+  <!-- android -->
+  <platform name="android">
+    <config-file target="res/xml/config.xml" parent="/*">
+      <feature name="CustomUrlLauncher">
+        <param name="android-package" value="it.eonardol.plugins.CustomUrlLauncher" />
+      </feature>
+    </config-file>
+    <source-file src="src/android/it/eonardol/plugins/CustomUrlLauncher.java" target-dir="src/it/eonardol/plugins" />
+  </platform>
+</plugin>
