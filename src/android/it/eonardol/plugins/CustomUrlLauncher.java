@@ -5,6 +5,8 @@ import org.apache.cordova.CordovaPlugin;
 import org.json.JSONArray;
 import org.json.JSONException;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.util.Log;
 
 public class CustomUrlLauncher extends CordovaPlugin {
@@ -15,7 +17,9 @@ public class CustomUrlLauncher extends CordovaPlugin {
     if (ACTION_LAUNCH_EVENT.equals(action)) {
       final String urlToLaunch = args.getString(0);
       Log.i(LOG_TAG, "opening " + urlToLaunch);
-      //TODO
+      Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(urlToLaunch));
+      browserIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+      this.cordova.getActivity().startActivity(browserIntent);
       callbackContext.success();
       return true;
     } else {
