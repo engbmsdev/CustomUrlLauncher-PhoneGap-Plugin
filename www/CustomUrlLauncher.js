@@ -3,6 +3,9 @@ function CustomUrlLauncher() {}
 CustomUrlLauncher.prototype.launch = function(url, successCallback, errorCallback) {
   cordova.exec(successCallback, errorCallback, "CustomUrlLauncher", "launch", [url]);
 };
+CustomUrlLauncher.prototype.canLaunch = function(url, successCallback, errorCallback) {
+  cordova.exec(successCallback, errorCallback, "CustomUrlLauncher", "canLaunch", [url]);
+};
 
 CustomUrlLauncher.install = function() {
   if (!window.plugins) {
