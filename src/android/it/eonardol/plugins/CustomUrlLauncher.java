@@ -30,16 +30,21 @@ public class CustomUrlLauncher extends CordovaPlugin {
 			return true;
 		} else if (ACTION_CAN_LAUNCH_EVENT.equals(action)) {
 			final String urlToLaunch = args.getString(0);
-			Log.i(LOG_TAG, "check if is possible to launch " + urlToLaunch);
+			Log.i(LOG_TAG, "check if it is possible to launch " + urlToLaunch);
 			PackageManager manager = this.cordova.getActivity().getPackageManager();
 			Intent intent = new Intent();
 			intent.setAction(Intent.ACTION_VIEW);
 			intent.setData(Uri.parse(urlToLaunch));
 			List<ResolveInfo> infos = manager.queryIntentActivities (intent, PackageManager.GET_RESOLVED_FILTER);
-			Log.i(LOG_TAG, "result " + infos);
-			Log.i(LOG_TAG, "result " + infos.size());
-			callbackContext.success();
-			return true;
+			if (infos.size()>0){
+				callbackContext.success();
+				return true;
+			}
+			else {
+				callbackContext.error("no app found");
+				return false;
+			}
+
 		} else {
 			callbackContext.error("customurllauncher." + action + " is not a supported function. Did you mean '" + ACTION_LAUNCH_EVENT + "'?");
 			return false;
