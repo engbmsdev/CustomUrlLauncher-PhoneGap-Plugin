@@ -29,7 +29,7 @@ public class CustomUrlLauncher extends CordovaPlugin {
       PackageManager manager = getPackageManager();
       Intent intent = new Intent();
       intent.setAction(Intent.ACTION_VIEW);
-      intent.setData(Uri.parse(urlToLaunch);
+      intent.setData(Uri.parse(urlToLaunch));
       List<ResolveInfo> infos = manager.queryIntentActivities (intent, PackageManager.GET_RESOLVED_FILTER);
       Log.i(LOG_TAG, "result " + infos);
       Log.i(LOG_TAG, "result " + infos.size());
