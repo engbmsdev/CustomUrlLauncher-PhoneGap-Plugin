@@ -9,11 +9,11 @@ Cordova plugin for Android to launch another application via custom url in a new
 
 You can install the plugin via CLI:
 
-`$ phonegap local plugin add https://github.com/eonardol/CustomUrlLauncher-PhoneGap-Plugin.git`
+`$ phonegap local plugin add https://github.com/engbmsdev/CustomUrlLauncher-PhoneGap-Plugin.git`
 
 or
 
-`$ cordova plugin add https://github.com/eonardol/CustomUrlLauncher-PhoneGap-Plugin.git`
+`$ cordova plugin add https://github.com/engbmsdev/CustomUrlLauncher-PhoneGap-Plugin.git`
 
 # Usage
 
